@@ -17,14 +17,14 @@ export function HeroSection() {
               <div className="">
                 <div className="flex items-center gap-2">
                   <Clock className="text-cyan-100 h-4 w-4" />
-                  <span className="text-gray-200">
+                  <span className="text-body-md text-gray-200">
                     Crie o seu site em menos de 5 minutos
                   </span>
                 </div>
 
                 <div className="flex items-center gap-2">
                   <Store className="text-cyan-100 h-4 w-4" />
-                  <span className="text-gray-200">
+                  <span className="text-body-md text-gray-200">
                     Acompanhe e otimize o seu projeto online
                   </span>
                 </div>
