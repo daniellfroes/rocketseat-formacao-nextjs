@@ -15,11 +15,11 @@ export default function Blog() {
               Dicas e estratégias para impulsionar o seu negócio!
             </h1>
           </div>
+
+          {/* search */}
+          <Search />
         </div>
       </header>
-
-      {/* search */}
-      <Search />
 
       {/* Listagem posts */}
     </div>
