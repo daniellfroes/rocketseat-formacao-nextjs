@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
-export function Features() {
+export function FeaturesSection() {
   return (
     <>
       <section className="container bg-gray-700 grid gap-6 md:grid-cols-2 py-8 md:py-10">
