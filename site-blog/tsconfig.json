@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".", //Content Layer
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -14,9 +15,15 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"] //Content Layer
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".contentlayer/generated" //Content Layer
+, "contentlayer.config.ts"  ],
   "exclude": ["node_modules"]
 }
