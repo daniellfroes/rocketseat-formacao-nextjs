@@ -19,6 +19,8 @@ export function BlogList() {
       )
     : allPosts;
 
+  console.log(posts);
+
   const hasPosts = posts.length > 0;
 
   return (
