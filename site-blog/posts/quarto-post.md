@@ -3,7 +3,7 @@ type: "Post"
 title: Crie sua loja e comece a vender
 date: 2024-11-05 10:20:00
 description: A criação de um e-commerce não precisa ser difícil.
-image: /assets/blog/covers/quarto-post.png
+image: /assets/blog/covers/quarto-post.avif
 author:
   name: Aspen Dokidis
   avatar: /assets/blog/avatars/avatar-04.png
