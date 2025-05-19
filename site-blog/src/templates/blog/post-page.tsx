@@ -20,15 +20,15 @@ export function PostPage() {
   const slug = router.query.slug as string;
 
   const post = allPosts.find(
-    (post) => post.slug.toLowerCase() === slug.toLowerCase()
+    (post) => post?.slug?.toLowerCase() === slug?.toLowerCase()
   )!;
-  const publishedDate = new Date(post.date).toLocaleDateString("pt-BR");
-
+  const publishedDate = new Date(post?.date).toLocaleDateString("pt-BR");
   const postUrl = `http://site.com/blog/${slug}`;
+
   const { shareButtons } = useShare({
     url: postUrl,
-    title: post.title,
-    text: post.description,
+    title: post?.title,
+    text: post?.description,
   });
 
   return (
@@ -47,7 +47,7 @@ export function PostPage() {
             <BreadcrumbItem>
               <span className=" text-blue-300 text-action-sm">
                 {post?.title}
-              </span>{" "}
+              </span>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -56,8 +56,8 @@ export function PostPage() {
           <article className="bg-gray-600 rounded-lg overflow-hidden border-gray-400 border-[1px]">
             <figure className="relative aspect-[16/10] w-full overflow-hidden runded-lg">
               <Image
-                src={post?.image}
-                alt={post?.title}
+                src={post?.image ?? ""}
+                alt={post?.title ?? ""}
                 fill
                 className="object-cover"
               />
@@ -69,7 +69,7 @@ export function PostPage() {
               </h1>
               <Avatar.Container>
                 <Avatar.Image
-                  src={post?.author.avatar.trimEnd()}
+                  src={post?.author.avatar}
                   alt={post?.title}
                   size="sm"
                 />
@@ -84,7 +84,7 @@ export function PostPage() {
             </header>
 
             <div className="prose prove-invert max-w-none px-4 mt-12 md:px-6 lg:px-12">
-              <Markdown content={post.body.raw} />
+              <Markdown content={post?.body.raw} />
             </div>
           </article>
 
