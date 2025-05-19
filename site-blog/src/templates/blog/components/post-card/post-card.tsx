@@ -1,3 +1,4 @@
+import { Avatar } from "@/components/avatar";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -58,17 +59,10 @@ export function PostCard({
 
           {/* Footer post */}
           <div className="flex items-center gap-3 border-t border-gray-400 p-4">
-            <div className="relative h-5 w-5 md:h-6 md:w-6 overflow-hidden rounded-full border-blue-200 border-[1px]">
-              <Image
-                src={author.avatar}
-                alt="Imagem de perfl do autor da publicação"
-                fill
-                className="object-cover rounded-md"
-                sizes="(max-width: 768px) 40px, (max-width: 1200px) 50px, 30px"
-              />
-            </div>
-
-            <span className="text-body-sm text-gray-300">{author.name}</span>
+            <Avatar.Container>
+              <Avatar.Image src={author.avatar} alt={author.name} size="xs" />
+              <Avatar.Title>{author.name}</Avatar.Title>
+            </Avatar.Container>
           </div>
         </div>
       </div>
