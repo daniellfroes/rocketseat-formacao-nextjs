@@ -1,7 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useRef } from "react";
 import { CircleX, SearchIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -35,6 +35,7 @@ export function Search() {
   function resetSearch() {
     router.push("/blog", { scroll: false });
   }
+  
   useEffect(() => {
     if (hasQuery) {
       inputRef.current?.focus();
