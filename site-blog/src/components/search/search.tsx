@@ -1,15 +1,17 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { CircleX, SearchIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 export function Search() {
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams?.get("q") ?? "";
+  const hasQuery = searchParams?.has("q");
 
   const handleSearch = useCallback(
     (event: React.FormEvent) => {
@@ -33,6 +35,11 @@ export function Search() {
   function resetSearch() {
     router.push("/blog", { scroll: false });
   }
+  useEffect(() => {
+    if (hasQuery) {
+      inputRef.current?.focus();
+    }
+  }, [hasQuery]);
 
   return (
     <form onSubmit={handleSearch} className="relative group w-full md:w-60">
@@ -43,6 +50,7 @@ export function Search() {
         )}
       />
       <input
+        ref={inputRef}
         type="text"
         placeholder="Buscar"
         value={query}
