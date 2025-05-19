@@ -42,6 +42,7 @@ export function PostCard({
             alt={title}
             width={288}
             height={144}
+            priority
             className="w-full h-40 object-cover object-center rounded-[8px]"
           />
         </div>
@@ -60,9 +61,10 @@ export function PostCard({
             <div className="relative h-5 w-5 md:h-6 md:w-6 overflow-hidden rounded-full border-blue-200 border-[1px]">
               <Image
                 src={author.avatar}
-                alt=""
+                alt="Imagem de perfl do autor da publicação"
                 fill
                 className="object-cover rounded-md"
+                sizes="(max-width: 768px) 40px, (max-width: 1200px) 50px, 30px"
               />
             </div>
 
