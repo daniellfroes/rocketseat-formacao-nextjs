@@ -13,6 +13,7 @@ import {
 import { Avatar } from "@/components/avatar";
 import { Markdown } from "@/components/markdown";
 import { Button } from "@/components/ui/button";
+import { useShare } from "@/hooks";
 
 export default function PostPage() {
   const router = useRouter();
@@ -21,8 +22,14 @@ export default function PostPage() {
   const post = allPosts.find(
     (post) => post.slug.toLowerCase() === slug.toLowerCase()
   )!;
-
   const publishedDate = new Date(post.date).toLocaleDateString("pt-BR");
+
+  const postUrl = `http://site.com/blog/${slug}`;
+  const { shareButtons } = useShare({
+    url: postUrl,
+    title: post.title,
+    text: post.description,
+  });
 
   return (
     <main className="mt-32 text-gray-100">
@@ -88,16 +95,15 @@ export default function PostPage() {
               </h2>
 
               <div className="space-y-3">
-                {[
-                  { key: 1, providerName: "Linkedin" },
-                  { key: 2, providerName: "Facebook" },
-                ].map((provider) => (
+                {shareButtons.map((provider) => (
                   <Button
-                    key={provider.key}
+                    key={provider.provider}
                     variant={"outline"}
                     className="w-full justify-start gap-2"
+                    onClick={provider.action}
                   >
-                    {provider.providerName}
+                    {provider.icon}
+                    {provider.name}
                   </Button>
                 ))}
               </div>
