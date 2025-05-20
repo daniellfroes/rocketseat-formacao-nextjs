@@ -9,6 +9,10 @@ type BlogPostPageProps = {
   }>;
 };
 
+export const revalidate = 60;
+
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
