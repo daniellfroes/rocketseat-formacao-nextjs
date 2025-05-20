@@ -1,7 +1,7 @@
+import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 
 import { PostPage } from "@/templates/blog";
-import { notFound } from "next/navigation";
 
 type BlogPostPageProps = {
   params: Promise<{
